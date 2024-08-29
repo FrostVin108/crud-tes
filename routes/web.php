@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Account;
+use App\Http\Controllers\AccountController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +14,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [AccountController::class, 'index'])->name('account.index');
+
+Route::delete('destroy/{id}', [AccountController::class, 'destroy'])->name('account.delete');
+
+Route::get('create', [AccountController::class, 'create'])->name('account.create');
+
+Route::post('/store', [AccountController::class, 'store'])->name('account.store');
