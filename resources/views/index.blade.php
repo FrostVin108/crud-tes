@@ -32,7 +32,9 @@
                         <td>{{$acc->user_email}}</td>
                         <td>                     
                             <form method="POST" action="{{route('account.delete', $acc->id)}}" onsubmit="return confirm('Apakah Anda Yakin?');" >
-                                <a href="{{route('account.edit', $acc->id)}}" class="btn-edit">Edit</a>
+                                <a href="{{route('account.info', $acc->id)}}" class="btn btn-info">Info</a>
+                                <a href="{{route('account.edit', $acc->id)}}" class="btn btn-primary">Edit</a>
+                                
                                 @csrf
                                 @method('delete')
                                 <button type="submit" class="btn btn-danger">Delete</button>

@@ -25,3 +25,9 @@ Route::delete('destroy/{id}', [AccountController::class, 'destroy'])->name('acco
 Route::get('create', [AccountController::class, 'create'])->name('account.create');
 
 Route::post('/store', [AccountController::class, 'store'])->name('account.store');
+
+Route::get('/edit/{id}', [AccountController::class, 'edit'])->name('account.edit');
+
+Route::put('/update/{id}', [AccountController::class, 'update'])->name('account.update');
+
+Route::get('/view/{id}', [AccountController::class, 'view'])->name('account.info');

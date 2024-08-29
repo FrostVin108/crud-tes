@@ -51,5 +51,42 @@ class AccountController extends Controller
         return redirect()->route('account.index');
     }
 
+    public function edit(string $id): View
+    {
+        //get post by ID
+        $account = Account::findOrFail($id);
+
+        //render view with post
+        return view('edit', compact('account'));
+    }
+
+    public function update(Request $request, $id): RedirectResponse
+    {
+        //validate form
+        $this->validate($request, [
+            'user_name'     => 'required',
+            'user_email'     => 'required',
+            'user_password'   => 'required',
+        ]);
+
+        //get post by ID
+        $account = Account::findOrFail($id);
+
+        $account->update([
+            'user_name'     => $request->user_name,
+            'user_email,'   => $request->user_email,
+            'user_password'   => $request->user_password,
+        ]);
+         //redirect to index
+         return redirect()->route('account.index')->with(['success' => 'Data Berhasil Diubah!']);
+        }
+
+        public function view(string $id): View
+        {
+            //get post by ID
+            $account = Account::findOrFail($id);
     
+            //render view with post
+            return view('show', compact('account'));
+        }
 }

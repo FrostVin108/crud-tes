@@ -28,7 +28,7 @@
                         <label for="exampleInputEmail">User Password</label><br>
                         <input class="form-control" type="password" placeholder="Masukkan Passowrd" name="user_password">
                     </div>
-
+                    <br>
                     <div class="form-group">
                         <button type="submit" class="btn btn-success">Submit</button>
                         <a class="btn btn-warning" href="{{ route('account.index')}}">Return</a>
